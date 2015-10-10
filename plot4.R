@@ -1,0 +1,11 @@
+TimeVars <- as.POSIXct(strptime(paste(SubsetData$Date,SubsetData$Time,sep = " "),"%d/%m/%Y %H:%M:%S"))
+par(mfrow = c(2,2), mar = c(4,4,2,1))
+with(SubsetData,{
+  plot(Global_active_power ~ TimeVars,ylab = "Global Active Power",xlab = "",type = "l")
+  plot(Voltage ~ TimeVars,ylab = "Voltage",xlab = "datetime",type = "l")
+  plot(Sub_metering_1 ~ TimeVars, ylab = "Energy sub metering",xlab = "",type = "n")
+  lines(Sub_metering_1 ~ TimeVars, col = "black")
+  lines(Sub_metering_2 ~ TimeVars, col = "red")
+  lines(Sub_metering_3 ~ TimeVars, col = "blue")
+  plot(Global_reactive_power ~ TimeVars,ylab = "Global_reactive_power",xlab = "datetime",type = "l")
+})
